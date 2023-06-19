@@ -21,7 +21,7 @@ public class CustomerService {
         return customers;
     }
 
-    public CustomerDTO findCustomerById(Long id){
+    public CustomerDTO findCustomerById(long id){
         return mapCustomerEntityToDTO(customerRepository.findById(id));
     }
 
@@ -29,7 +29,7 @@ public class CustomerService {
         customerRepository.persist(mapCustomerDTOToEntity(customerDTO));
     }
 
-    public void changeCustomer(Long id, CustomerDTO customerDTO){
+    public void changeCustomer(long id, CustomerDTO customerDTO){
         CustomerEntity customerEntity = customerRepository.findById(id);
         customerEntity.setName(customerDTO.getName());
         customerEntity.setEmail(customerDTO.getEmail());
@@ -40,7 +40,7 @@ public class CustomerService {
         customerRepository.persist(customerEntity);
     }
 
-    public void deleteCustomer(Long id){
+    public void deleteCustomer(long id){
         customerRepository.deleteById(id);
     }
 
@@ -57,6 +57,7 @@ public class CustomerService {
 
     private CustomerDTO mapCustomerEntityToDTO(CustomerEntity customerEntity){
         CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setId(customerEntity.getId());
         customerDTO.setAddress(customerEntity.getAddress());
         customerDTO.setAge(customerEntity.getAge());
         customerDTO.setEmail(customerEntity.getEmail());

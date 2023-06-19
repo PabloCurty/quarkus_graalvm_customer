@@ -1,21 +1,25 @@
 package org.acme.dto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 
 @Data
 @Jacksonized
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerDTO {
-    private String name;
+    private long id;
 
-    private String phone;
+    private char[] name;
 
-    private String email;
+    private char[] phone;
 
-    private String address;
+    private char[] email;
 
-    private Long age;
+    private char[] address;
+
+    private long age;
 }

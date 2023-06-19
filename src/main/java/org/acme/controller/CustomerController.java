@@ -24,13 +24,8 @@ public class CustomerController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findCustomerById(@PathParam("id") Long id){
-        try{
-            return Response.ok(customerService.findCustomerById(id)).build();
-        }catch (Exception e){
-            e.printStackTrace();
-            return Response.serverError().build();
-        }
+    public CustomerDTO findCustomerById(@PathParam("id") long id){
+        return customerService.findCustomerById(id);
     }
     @POST
     @Transactional
@@ -47,7 +42,7 @@ public class CustomerController {
     @PUT
     @Path("/{id}")
     @Transactional
-    public Response changeCustomer(@PathParam("id") Long id, CustomerDTO customerDTO){
+    public Response changeCustomer(@PathParam("id") long id, CustomerDTO customerDTO){
         try{
             customerService.changeCustomer(id, customerDTO);
             return Response.ok().build();
@@ -60,7 +55,7 @@ public class CustomerController {
     @DELETE
     @Path("/{id}")
     @Transactional
-    public Response deleteCustomer(@PathParam("id") Long id){
+    public Response deleteCustomer(@PathParam("id") long id){
         try{
             customerService.deleteCustomer(id);
             return Response.ok().build();

@@ -16,15 +16,15 @@ import lombok.NoArgsConstructor;
 public class CustomerEntity {
     @Id
     @GeneratedValue
-    private Long id;
+    private long id;
 
-    private String name;
+    private char[] name;
 
-    private String phone;
+    private char[] phone;
 
-    private String email;
+    private char[] email;
 
-    private String address;
+    private char[] address;
 
-    private Long age;
+    private long age;
 }
